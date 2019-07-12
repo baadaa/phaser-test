@@ -1,32 +1,36 @@
-import Phaser from "phaser";
-import logoImg from "./assets/logo.png";
+import Phaser from 'phaser';
+import { timingSafeEqual } from 'crypto';
+import skyAsset from './assets/sky.png';
+import groundAsset from './assets/platform.png';
+import starAsset from './assets/star.png';
+import bombAsset from './assets/bomb.png';
+import dudeAsset from './assets/dude.png';
 
 const config = {
   type: Phaser.AUTO,
-  parent: "phaser-example",
+  parent: 'phaser-example',
   width: 800,
   height: 600,
   scene: {
-    preload: preload,
-    create: create
-  }
+    preload,
+    create,
+  },
 };
 
 const game = new Phaser.Game(config);
 
 function preload() {
-  this.load.image("logo", logoImg);
+  this.load.image('sky', skyAsset);
+  this.load.image('ground', groundAsset);
+  this.load.image('star', starAsset);
+  this.load.image('bomb', bombAsset);
+  this.load.spritesheet('dude', dudeAsset, { frameWidth: 32, frameHeight: 48 });
 }
 
 function create() {
-  const logo = this.add.image(400, 150, "logo");
-
-  this.tweens.add({
-    targets: logo,
-    y: 450,
-    duration: 2000,
-    ease: "Power2",
-    yoyo: true,
-    loop: -1
-  });
+  this.add.image(400, 300, 'sky');
+  this.add.image(400, 300, 'star');
+  // const ground = this.add.image(400, 150, 'ground');
+  // const star = this.add.image(400, 150, 'star');
+  // const bomb = this.add.image(400, 150, 'bomb');
 }

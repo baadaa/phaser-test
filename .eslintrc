@@ -4,6 +4,9 @@
     "no-var": 0,
     "no-unused-vars": 0,
     "camelcase": 0,
-    "no-unused-expressions": ["error", { "allowTernary": true }]
+    "no-use-before-define": 1,
+    "no-unused-expressions": ["error", {
+      "allowTernary": true
+    }]
   }
 }
